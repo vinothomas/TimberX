@@ -31,5 +31,6 @@
     <color name="black">#000000</color>
 
     <color name="blueDark">#185abb</color>
+    <color name="red_ctrl">#d52661</color>
 
 </resources>

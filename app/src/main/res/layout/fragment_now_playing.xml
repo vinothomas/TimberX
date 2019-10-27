@@ -5,9 +5,17 @@
 
     <data>
         <import type="com.naman14.timberx.network.models.ArtworkSize"/>
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.naman14.timberx.ui.viewmodels.NowPlayingViewModel" />
+        <variable
+            name="lyrics"
+            type="java.lang.String" />
+
+        <variable
+            name="songtitle"
+            type="java.lang.String" />
     </data>
 
     <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -46,7 +54,85 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <com.naman14.timberx.ui.widgets.SquareImageView
+
+        <!--<include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/controls"
+            android:layout_below="@+id/toolbar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/default_album_art_small"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            layout="@layout/fragment_lyrics" />-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/controls"
+            android:layout_below="@+id/toolbar"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{lyrics != null ? View.GONE : View.VISIBLE}" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+<!--
+                    <TextView
+                        style="@style/TextAppearance.Headline5.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="end"
+                        android:paddingTop="3dp"
+                        android:text="@string/lyrics" />
+
+                    <TextView
+                        style="@style/TextAppearance.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@{songtitle}" />-->
+
+                    <TextView
+                        android:id="@+id/song_lyrics"
+                        style="@style/TextAppearance.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="20dp"
+                        android:ellipsize="end"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="150dp"
+                        android:text="@{lyrics}"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+        <!--<com.naman14.timberx.ui.widgets.SquareImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/controls"
@@ -63,7 +149,7 @@
             app:albumArtist="@{viewModel.currentData.artist}"
             app:albumName="@{viewModel.currentData.album}"
             app:artworkSize="@{ArtworkSize.MEGA}"
-            app:albumId="@{safeUnbox(viewModel.currentData.artworkId)}" />
+            app:albumId="@{safeUnbox(viewModel.currentData.artworkId)}" />-->
 
 
         <LinearLayout
@@ -148,6 +234,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
+                    android:tint="@color/red_ctrl"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_previous_outline" />
 
@@ -157,6 +244,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:tint="@color/red_ctrl"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_play_outline"
                     app:playState="@{safeUnbox(viewModel.currentData.state)}" />
@@ -166,11 +254,12 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
+                    android:tint="@color/red_ctrl"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_skip_outline" />
             </LinearLayout>
 
-            <RelativeLayout
+           <!-- <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -208,9 +297,9 @@
                     android:padding="5dp"
                     android:scaleType="centerInside"
                     app:repeatMode="@{safeUnbox(viewModel.currentData.repeatMode)}" />
-            </RelativeLayout>
+            </RelativeLayout>-->
 
-            <LinearLayout
+           <!-- <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -289,7 +378,7 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
 

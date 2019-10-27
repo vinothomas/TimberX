@@ -109,6 +109,7 @@ class MainViewModel(
         if (clickedItem.isBrowsable) {
             browseToItem(clickedItem)
         } else {
+
             playMedia(clickedItem, extras)
         }
     }
@@ -167,6 +168,8 @@ class MainViewModel(
             }
         } else {
             transportControls.playFromMediaId(mediaItem.mediaId, extras)
+            //show now playing page when song is clicked
+//            val mainActivity = nowPlayingActivity as? MainActivity
         }
     }
 

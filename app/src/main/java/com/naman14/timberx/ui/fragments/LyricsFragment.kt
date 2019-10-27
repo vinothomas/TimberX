@@ -66,14 +66,68 @@ class LyricsFragment : BaseNowPlayingFragment() {
         super.onActivityCreated(savedInstanceState)
         binding.songTitle = songTitle
 
+        var testLyric = "Male : Narumugayae narumugayae nee oru naaligai nillaai\n" +
+                "Sengani ooriya vaai thiranthu nee oru thiru mozhi sollaai\n" +
+                "Attrai thingal annillavil netri tharala neer vadiya\n" +
+                "Kottra poigal aadiyaval neeya\n" +
+                "Attrai thingal annillavil netri tharala neer vadiya\n" +
+                "Kottra poigal aadiyaval neeya\n" +
+                "\n" +
+                "Female : Thirumaganae thirumaganae nee oru naaligai paarai\n" +
+                "Vennira puraviyil vanthavanae vel vizhi mozhigal kellaai\n" +
+                "Attrai thingal annilavil kottra poigai aadugaiyil\n" +
+                "Ottrai paarvai paarthavannum neeya\n" +
+                "Attrai thingal annilavil kottra poigai aadugaiyil\n" +
+                "Ottrai paarvai paarthavannum neeya\n" +
+                "\n" +
+                "Male : Mangai maanvizhi ambugal en maarthulaitha thenna\n" +
+                "Mangai maanvizhi ambugal en maarthulaitha thenna\n" +
+                "Female : Paandi naadanai kanda en mannam passalai konda thenna\n" +
+                "Male : Nillaavilae paartha vannum kanaavilae thondrum innum\n" +
+                "Nillaavilae paartha vannum kanaavilae thondrum innum\n" +
+                "Female : Illaithen thudithen porruka villai\n" +
+                "Idaiyinil megallai irrukavillai\n" +
+                "\n" +
+                "Male : Narumugayae narumugayae nee oru naaligai nillaai\n" +
+                "Sengani ooriya vaai thiranthu nee oru thiru mozhi sollaai\n" +
+                "Female : Attrai thingal annilavil kottra poigai aadugaiyil\n" +
+                "Ottrai paarvai paarthavannum neeya\n" +
+                "Male : Attrai thingal annillavil netri tharala neer vadiya\n" +
+                "Kottra poigal aadiyaval neeya\n" +
+                "\n" +
+                "Female : Yaayum yaayum yaaragiyaro nenjil nendrathenna\n" +
+                "Yaayum yaayum yaaragiyaro nenjil nendrathenna\n" +
+                "Male : Yaanum neeyum yevalli-aridhum ooravu serndhathenna\n" +
+                "Female : Orae oru theendal seithaai ooyir kodi pootha thenna\n" +
+                "Orae oru theendal seithaai ooyir kodi pootha thenna\n" +
+                "Male : Sembullam serndhaa neer thulli pol\n" +
+                "Ambudai nenjam kallantha thenna\n" +
+                "\n" +
+                "Female : Thirumaganae thirumaganae nee oru naaligai paarai\n" +
+                "Vennira puraviyil vanthavanae vel vizhi mozhigal kellaai\n" +
+                "Attrai thingal annilavil kottra poigai aadugaiyil\n" +
+                "Ottrai paarvai paarthavannum neeya\n" +
+                "Attrai thingal annilavil kottra poigai aadugaiyil\n" +
+                "Ottrai paarvai paarthavannum neeya\n" +
+                "\n" +
+                "Male : Attrai thingal annillavil netri tharala neer vadiya\n" +
+                "Kottra poigal aadiyaval neeya\n" +
+                "Female : Aa aaa aaaaaaa…\n" +
+                "Male : Neeya..\n" +
+                "Female : Aa aaa aaaaaaa..\n" +
+                "Male : Neeya..\n" +
+                "Female : Aa aaa aaaaaaa..\n" +
+                "Male : Neeya..";
+
         // TODO make the lyrics handler/repo injectable
-        lyricsService.getLyrics(artistName, songTitle)
+       /* lyricsService.getLyrics(artistName, songTitle)
                 .ioToMain()
                 .subscribeForOutcome { outcome ->
                     when (outcome) {
                         is Outcome.Success -> binding.lyrics = outcome.data
                     }
                 }
-                .disposeOnDetach(view)
+                .disposeOnDetach(view)*/
+        binding.lyrics = testLyric;
     }
 }

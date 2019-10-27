@@ -12,8 +12,11 @@
         <clip>
             <shape>
                 <solid
-                    android:color="@color/colorAccent" />
+                    android:color="@color/red_ctrl" />
             </shape>
         </clip>
+
     </item>
+
+
 </layer-list>

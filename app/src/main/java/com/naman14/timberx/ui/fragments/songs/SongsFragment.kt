@@ -23,22 +23,17 @@ import com.afollestad.rxkprefs.Pref
 import com.google.android.material.snackbar.Snackbar
 import com.naman14.timberx.PREF_SONG_SORT_ORDER
 import com.naman14.timberx.R
+import com.naman14.timberx.constants.Constants.NOW_PLAYING
 import com.naman14.timberx.constants.SongSortOrder
 import com.naman14.timberx.constants.SongSortOrder.SONG_A_Z
 import com.naman14.timberx.constants.SongSortOrder.SONG_DURATION
 import com.naman14.timberx.constants.SongSortOrder.SONG_YEAR
 import com.naman14.timberx.constants.SongSortOrder.SONG_Z_A
-import com.naman14.timberx.extensions.addOnItemClick
-import com.naman14.timberx.extensions.filter
-import com.naman14.timberx.extensions.getExtraBundle
-import com.naman14.timberx.extensions.inflateTo
-import com.naman14.timberx.extensions.observe
-import com.naman14.timberx.extensions.disposeOnDetach
-import com.naman14.timberx.extensions.ioToMain
-import com.naman14.timberx.extensions.safeActivity
-import com.naman14.timberx.extensions.toSongIds
+import com.naman14.timberx.extensions.*
 import com.naman14.timberx.models.Song
+import com.naman14.timberx.ui.activities.MainActivity
 import com.naman14.timberx.ui.adapters.SongsAdapter
+import com.naman14.timberx.ui.fragments.NowPlayingFragment
 import com.naman14.timberx.ui.fragments.base.MediaItemFragment
 import com.naman14.timberx.ui.listeners.SortMenuListener
 import kotlinx.android.synthetic.main.layout_recyclerview.recyclerView
@@ -69,6 +64,11 @@ class SongsFragment : MediaItemFragment() {
                 songsAdapter.getSongForPosition(position)?.let { song ->
                     val extras = getExtraBundle(songsAdapter.songs.toSongIds(), getString(R.string.all_songs))
                     mainViewModel.mediaItemClicked(song, extras)
+//                    val mainActivity = activity as? MainActivity
+                    activity.addFragment(
+                            fragment = NowPlayingFragment(),
+                            tag = NOW_PLAYING
+                    )
                 }
             }
         }

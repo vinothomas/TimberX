@@ -35,7 +35,7 @@
         android:title="@string/start_page"
         app:iconSpaceReserved="false" />
 
-    <CheckBoxPreference
+    <!--<CheckBoxPreference
         android:defaultValue="true"
         android:key="lastfm_artist_image"
         android:summary="@string/load_artist_image_summary"
@@ -47,6 +47,6 @@
         android:key="lastfm_album_image"
         android:summary="@string/load_album_image_summary"
         android:title="@string/load_album_image"
-        app:iconSpaceReserved="false" />
+        app:iconSpaceReserved="false" />-->
 
 </PreferenceScreen>
